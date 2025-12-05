@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.button-wrapper {
+    position: relative;
+}
+
+.illegal-btn {
+    background: linear-gradient(45deg, #ff0033, #ff3366, #ff0033);
+    color: #fff;
+    padding: 1.5rem 3rem;
+    font-size: 1.8rem;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 0, 60, 0.7);
+    animation: pulse 2s infinite;
+    transition: 0.3s;
+    position: relative;
+    z-index: 2;
+}
+
+.illegal-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 0, 60, 0.9);
+    animation: none;
+}
+
+.illegal-btn:active {
+    transform: scale(0.95);
+}
+
+/* glitch */
+.glitch {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 1;
+}
+
+.slice {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    animation: glitchMove 5s infinite;
+}
+
+.slice:nth-child(1) {
+    background: linear-gradient(45deg, #ff0033, #ff3366, #ff0033);
+}
+
+.slice:nth-child(2) {
+    background: linear-gradient(45deg, #00ccff, #33ffcc, #00ccff);
+    animation-delay: .4s;
+    clip-path: polygon(0 10%, 100% 20%, 100% 90%, 0 80%);
+}
+
+.slice:nth-child(3) {
+    background: linear-gradient(45deg, #33ff33, #ccff33, #33ff33);
+    animation-delay: .8s;
+    clip-path: polygon(0 20%, 100% 30%, 100% 70%, 0 60%);
+}
+
+@keyframes glitchMove {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+
+    3% {
+        opacity: .5;
+        transform: translateX(-5px);
+    }
+
+    6% {
+        opacity: 0;
+        transform: translateX(5px);
+    }
+
+    9% {
+        opacity: .7;
+        transform: translateX(-7px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(255, 0, 60, 0.7);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(255, 0, 60, 0.9);
+    }
+}
