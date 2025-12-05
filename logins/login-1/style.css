@@ -1,0 +1,182 @@
+/* ---------- Global Reset ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #020617;
+    overflow: hidden;
+}
+
+/* ---------- Reactive Grid Background ---------- */
+.grid-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, #0f172a 0%, #020617 70%);
+    z-index: -3;
+}
+
+.grid-lines {
+    position: absolute;
+    inset: 0;
+    background-size: 60px 60px;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    opacity: 0.4;
+    animation: moveGrid 10s linear infinite;
+    z-index: -2;
+}
+
+@keyframes moveGrid {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-60px);
+    }
+}
+
+/* ---------- Floating Neon Orbs ---------- */
+.orb {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: float 8s ease-in-out infinite;
+    z-index: -1;
+}
+
+.o1 {
+    background: #06b6d4;
+    top: 5%;
+    left: 15%;
+    animation-duration: 7s;
+}
+
+.o2 {
+    background: #7c3aed;
+    bottom: 10%;
+    right: 10%;
+    animation-duration: 9s;
+}
+
+.o3 {
+    background: #f43f5e;
+    top: 50%;
+    left: 60%;
+    animation-duration: 11s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(-20px) scale(1);
+    }
+
+    50% {
+        transform: translateY(20px) scale(1.15);
+    }
+}
+
+/* ---------- Hologram Login Card ---------- */
+.card {
+    width: 350px;
+    padding: 45px 40px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(25px) saturate(180%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated border glow ring */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: conic-gradient(#06b6d4, #7c3aed, #f43f5e, #06b6d4);
+    filter: blur(15px);
+    animation: rotate 6s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.title {
+    margin-bottom: 25px;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.input-box {
+    margin-bottom: 18px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 14px 15px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.input-box input:focus {
+    background: rgba(255, 255, 255, 0.28);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+}
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #06b6d4, #7c3aed, #f43f5e);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+}
+
+.footer {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.footer span {
+    color: #7c3aed;
+    cursor: pointer;
+}
